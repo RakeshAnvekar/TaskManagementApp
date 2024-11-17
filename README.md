@@ -61,9 +61,8 @@ You can access and test these endpoints using **Swagger UI**, which is available
 1. Clone or download the repository for the backend.
 2. Open the solution in **Visual Studio** or **Visual Studio Code**.
 3. Install necessary NuGet packages:
-   - `Microsoft.EntityFrameworkCore`
+   - `Microsoft.Data.SqlClient`
    - `Microsoft.AspNetCore.Swagger`
-   - Other dependencies for ADO.NET, if needed.
 
 4. Run the application locally:
    - The backend API will be hosted on a local server (e.g., `http://localhost:5000`).
@@ -75,4 +74,7 @@ You can access and test these endpoints using **Swagger UI**, which is available
 2. Navigate to the project directory and install dependencies:
 
    npm install
+   npm run build
+   npm run dev
+   
 
