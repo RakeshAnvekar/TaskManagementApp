@@ -1,0 +1,58 @@
+.createNewItem__button {
+    border: none;
+    outline: 0;
+    padding: 12px;
+    color: white;
+    background-color: #000;
+    text-align: center;
+    cursor: pointer;    
+    font-size: 18px;
+    margin: 20px;
+  }
+  /* Reset default list styles */
+ul.styled-list {
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+}
+
+/* Style each list item */
+ul.styled-list li {
+  background-color: #f4f4f9;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 12px;
+  margin-bottom: 8px;
+  font-family: 'Arial', sans-serif;
+  font-size: 16px;
+  color: #333;
+  transition: all 0.3s ease-in-out;
+}
+
+ul.styled-list li:hover {
+  background-color: #007bff;
+  color: white;
+  transform: scale(1.05);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+ul.styled-list li:hover::before {
+  content: "→ ";
+  font-weight: bold;
+  color: #fff;
+  padding-right: 8px;
+}
+
+ul.styled-list li:not(:last-child) {
+  margin-bottom: 12px;
+}
+
+ul.styled-list li:first-child {
+  font-weight: bold;
+  color: #6b6b72;
+  width: 300px;
+}
+
+ul.styled-list li:last-child {
+  background-color: #e6f7ff;
+}

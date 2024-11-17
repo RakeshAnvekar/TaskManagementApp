@@ -1,0 +1,49 @@
+.createTaskItem__outer_container{
+  width: 550px;
+  height: 650px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  max-width: 550px;
+  margin: auto;
+  text-align: center;
+  font-family: arial;
+}
+.createTaskItem__Input{
+  width: 350px;
+  height: 30px;
+  margin-left: 30px;
+  
+}
+.createTaskItem__Input-textarea {
+  height: 100px;
+  width: 350px;
+  resize: vertical;
+}
+
+.createTaskItem__inner_container{
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  max-width: 490px;
+  margin: auto;
+  text-align: center;
+  font-family: arial;
+}
+.button {
+  border: none;
+  outline: 0;
+  padding: 12px;
+  color: white;
+  background-color: #000;
+  text-align: center;
+  cursor: pointer;
+  width: 40%;
+  font-size: 18px;
+  margin: 20px;
+}
+.calenderIcon{
+  width: 45px;
+  height: 45px;
+  margin-left: 30px;
+}
+.backButtonIcon{
+  width:30px;
+  height:30px;
+}
