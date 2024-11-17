@@ -19,30 +19,29 @@ This application is a **Task Management System** that allows users to create, up
 - **Update Task**: Users can update existing tasks.
 - **Get Task**: Users can view the details of a task by ID or view a list of tasks.
 - **Delete Task**: Users can delete a task (if implemented).
-- **Search Task**: Users can search tasks by name or other filters (if implemented).
 
 ## 5. API Endpoints
 The API exposes the following endpoints to manage tasks. You can explore these endpoints in **Swagger**.
 
-### GET /api/tasks
+### GET /api/TaskManagement/GetAllTasks
 - **Description**: Retrieves all tasks.
 - **Response**: A list of tasks.
 
-### GET /api/tasks/{id}
+### GET /api/TaskManagement/GetTaskDetails/{taskItemId}
 - **Description**: Retrieves a task by its ID.
 - **Response**: Task details for the given ID.
 
-### POST /api/tasks
+### POST /api/TaskManagement/CreateNewTaskItem
 - **Description**: Creates a new task.
 - **Request Body**: JSON object containing task name, description, and deadline.
 - **Response**: Created task details.
 
-### PUT /api/tasks/{id}
+### PUT /api/TaskManagement/UpdateTaskDetails/{id}
 - **Description**: Updates an existing task by ID.
 - **Request Body**: JSON object with updated task information.
 - **Response**: Updated task details.
 
-### DELETE /api/tasks/{id}
+### DELETE /api/TaskManagement/TaskManagement{id}
 - **Description**: Deletes a task by ID.
 - **Response**: Success message or error message.
 
@@ -50,7 +49,7 @@ You can access and test these endpoints using **Swagger UI**, which is available
 
 ## 6. Database and ADO.NET
 - **Database**: The application uses **ADO.NET** for database access. 
-- **SQL Server**: (Assuming SQL Server is being used, but could be other databases like MySQL or PostgreSQL based on your actual setup).
+- **SQL Server**:
 - **Repository Design Pattern**: Used to abstract the data access layer. This provides a cleaner architecture and better separation of concerns between business logic and data storage logic.
 
 ### Example ADO.NET Usage:
@@ -74,6 +73,6 @@ You can access and test these endpoints using **Swagger UI**, which is available
 ### Frontend (React)
 1. Clone or download the repository for the React application.
 2. Navigate to the project directory and install dependencies:
-   ```bash
+
    npm install
 
