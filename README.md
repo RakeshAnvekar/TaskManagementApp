@@ -72,9 +72,10 @@ You can access and test these endpoints using **Swagger UI**, which is available
 ### Frontend (React)
 1. Clone or download the repository for the React application.
 2. Navigate to the project directory and install dependencies:
+   
+ - `npm install`
+ - `npm run build`
+ - `npm run dev`
 
-   npm install
-   npm run build
-   npm run dev
    
 
