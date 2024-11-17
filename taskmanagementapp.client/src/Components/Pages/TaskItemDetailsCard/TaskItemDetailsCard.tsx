@@ -23,7 +23,7 @@ const TaskItemDetailsCard = () => {
           const itemDetails = await taskItemRepository.getTaskDetailsById(taskItemId);
           setTaskItemDetails(itemDetails);
         } catch (err) {
-          setError('Failed to fetch task details.'); 
+          setError('Failed to fetch task details.'+err); 
         } finally {
           setLoading(false); 
         }
@@ -38,7 +38,7 @@ const TaskItemDetailsCard = () => {
     }
     const handleOnMarkAsDone=async()=>{
       confirm(`Are you sure you want to mark Task  ${taskItemDetails?.taskTitle} as done?`);
-   var result= await taskItemRepository.deleteTaskItemById(taskItemId);
+   const result= await taskItemRepository.deleteTaskItemById(taskItemId);
    if(result){
     alert(`${taskItemDetails?.taskTitle}  Task Deleted Sucessfully`);
     navigate("/")

@@ -6,7 +6,7 @@ export default class TaskItemRepository implements ITaskItemRepository{
   async  deleteTaskItemById(taskItemId: number): Promise<number|null> {
         if(taskItemId == null || undefined) 
             throw new Error("Task Item Id canot be null");
-        var url=`https://localhost:7296/api/TaskManagement/DeleteTask?taskItemId=${taskItemId}`;
+        const url=`https://localhost:7296/api/TaskManagement/DeleteTask?taskItemId=${taskItemId}`;
                 try{
             const response=await fetch(url,
                 {method:"Put",
@@ -17,7 +17,7 @@ export default class TaskItemRepository implements ITaskItemRepository{
                     console.error(`Error: ${response.statusText}`);
                 return null;
                 }
-                var result:number=await response.json();
+                const result:number=await response.json();
                 return result;
         }catch(error){
             console.error(`Error: ${error}`);
@@ -29,7 +29,7 @@ export default class TaskItemRepository implements ITaskItemRepository{
         if(taskItem == null)
         throw new Error("Task item canot be null");
 
-        let url="https://localhost:7296/api/TaskManagement/CreateNewTaskItem";
+        const url="https://localhost:7296/api/TaskManagement/CreateNewTaskItem";
 
         try{
             const response= await fetch(url,{
@@ -53,7 +53,7 @@ export default class TaskItemRepository implements ITaskItemRepository{
     }
 
 async getAllTaskAsync(): Promise<ITaskItem[] | null> {
-    let url = "https://localhost:7296/api/TaskManagement/GetAllTasks";
+    const url = "https://localhost:7296/api/TaskManagement/GetAllTasks";
     
     try {
          const response = await fetch(url, {
@@ -77,7 +77,7 @@ async getAllTaskAsync(): Promise<ITaskItem[] | null> {
 }
 async getTaskDetailsById(taskId:number):Promise<ITaskItem|null>{
     try{
-        let url=`https://localhost:7296/api/TaskManagement/GetTaskDetails?taskItemId=${taskId}`
+        const url=`https://localhost:7296/api/TaskManagement/GetTaskDetails?taskItemId=${taskId}`
         const response= await fetch(url,{
             method:"GET",
            headers:{

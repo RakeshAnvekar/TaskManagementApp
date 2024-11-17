@@ -26,7 +26,7 @@ const handleResetTaskItem=async()=>{
   setTaskDeadline('');
 }
 const handleCreateTaskItem=async()=>{
-var newTaskItemResult:ITaskItem={  
+const newTaskItemResult:ITaskItem={  
   taskTitle: taskTitle,
   taskDescription: taskDesctiption,  
   isCompleted: false,
@@ -37,7 +37,7 @@ var newTaskItemResult:ITaskItem={
 };
 
 
- var result= await taskRepository.createNewTaskItem(newTaskItemResult);
+ const result= await taskRepository.createNewTaskItem(newTaskItemResult);
  if(result){
 alert("Item Saved Scuessfully");
 handleResetTaskItem();
