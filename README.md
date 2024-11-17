@@ -64,7 +64,7 @@ You can access and test these endpoints using **Swagger UI**, which is available
    - `Microsoft.Data.SqlClient`
    - `Microsoft.AspNetCore.Swagger`
 4. Sql Scripts to execure:(Note All the Scripts are in DB Executor Folder in TaskManagement.Api project)
-    - `Create Data Base named **TaskManagementDb** `
+    - `Create Data Base named `**TaskManagementDb**
     - `Run Create Table Scripts`
     - `Run Insert Scripts`
     - `Run Stored Procedures`
