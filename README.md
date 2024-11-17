@@ -63,11 +63,16 @@ You can access and test these endpoints using **Swagger UI**, which is available
 3. Install necessary NuGet packages:
    - `Microsoft.Data.SqlClient`
    - `Microsoft.AspNetCore.Swagger`
+4. Sql Scripts to execure:(Note All the Scripts are in DB Executor Folder in TaskManagement.Api project)
+    - `Create Data Base named **TaskManagementDb** `
+    - `Run Create Table Scripts`
+    - `Run Insert Scripts`
+    - `Run Stored Procedures`
 
-4. Run the application locally:
+5. Run the application locally:
    - The backend API will be hosted on a local server (e.g., `http://localhost:5000`).
 
-5. **Swagger UI** will be available to interact with API endpoints (e.g., `http://localhost:5000/swagger`).
+6. **Swagger UI** will be available to interact with API endpoints (e.g., `http://localhost:5000/swagger`).
 
 ### Frontend (React)
 1. Clone or download the repository for the React application.
@@ -76,6 +81,8 @@ You can access and test these endpoints using **Swagger UI**, which is available
  - `npm install`
  - `npm run build`
  - `npm run dev`
+
+
 
    
 
