@@ -1,10 +1,11 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import "../TaskItemCreate/TaskItemCreate.css";
 import 'react-calendar/dist/Calendar.css';
 import IocHelper from "../../../Helpers/Ioc/IocHelper";
 import { ITaskItem } from "../../../Models/TaskItem";
 import { useNavigate } from "react-router-dom";
 import backButtonIcon from "../../../assets/Icons/backButtonIcon.jpg";
+import { GlobalDropDownContext } from "../../../Contexts/GlobalDropDownContext";
 const TaskItemCreatePage: React.FC = () => {
   const [taskTitle,setTaskTitle]=useState('');
   const [taskDesctiption,setTaskDescription]=useState('');
@@ -16,7 +17,8 @@ const TaskItemCreatePage: React.FC = () => {
 
   const iocHelper=new IocHelper();
   const taskRepository=iocHelper.getTaskItemRepository();
-  
+  GlobalDropDownContext
+  const context = useContext(GlobalDropDownContext);  
 
 const handleResetTaskItem=async()=>{
   setTaskTitle('');
@@ -56,13 +58,12 @@ const handleBackButtonClick=async()=>{
         <span>Task Title</span><input type="text" required className="createTaskItem__Input" id="taskTitle" name="taskTitle" value={taskTitle} onChange={(e)=>setTaskTitle(e.target.value)}></input>
           <br/>
           <br/>
-          <span>Category</span><select id="taskCategory" name="taskCategory" className="createTaskItem__Input" value={taskCategory} onChange={(e)=>setTaskCategory(Number(e.target.value))}>
-                <option value={1}>Personal</option>
-                <option value={2}>Work</option>
-                <option value={3}>Fitness</option>
-                <option value={4}>Household</option>
-                <option value={5}>Learning</option>
-          </select>
+          <span>Category</span>
+          <select id="taskCategory" name="taskCategory" className="createTaskItem__Input" value={taskCategory} onChange={(e)=>setTaskCategory(Number(e.target.value))}>
+          {context?.categoriesData?.map(category=>
+            <option value={category?.taskCategoryId}>{category?.category}</option>
+          )};
+          </select>          
           <br/>
           <br/>
           <span>Priority</span><select id="taskPriority" name="taskPriority" className="createTaskItem__Input" value={taskPriority} onChange={(e)=>setTaskPriority(Number(e.target.value))}>
