@@ -1,4 +1,4 @@
-﻿using TaskManagementApp.Api.Models;
+using TaskManagementApp.Api.Models;
 
 namespace TaskManagementApp.Api.Repositories.Interfaces;
 

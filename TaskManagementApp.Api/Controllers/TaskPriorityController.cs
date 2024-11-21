@@ -13,7 +13,7 @@ namespace TaskManagementApp.Api.Controllers
         private readonly ITaskPriorityLogic _taskPriorityLogic;
         #endregion
 
-        #region Constgructor
+        #region Constructor
         public TaskPriorityController(ILogger<TaskPriorityController> logger, ITaskPriorityLogic taskPriorityLogic)
         {
             _logger = logger;
@@ -22,7 +22,6 @@ namespace TaskManagementApp.Api.Controllers
         #endregion
 
         #region Methods
-        [HttpGet("GetAllTakPriorities")]
         public async Task<IActionResult> Get()
         {
             try

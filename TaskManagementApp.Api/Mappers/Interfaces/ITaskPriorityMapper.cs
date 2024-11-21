@@ -1,4 +1,4 @@
-﻿using System.Data;
+using System.Data;
 using TaskManagementApp.Api.Models;
 
 namespace TaskManagementApp.Api.Mappers.Interfaces;
