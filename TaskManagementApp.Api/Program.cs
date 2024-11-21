@@ -22,18 +22,21 @@ builder.Services.AddSingleton<IDbExecutor, DbExecutor>();
 builder.Services.AddScoped<ITaskItemLogic, TaskItemLogic>();
 builder.Services.AddScoped<ITaskCategoryLogic, TaskCategoryLogic>();
 builder.Services.AddScoped<ITaskPriorityLogic, TaskPriorityLogic>();
+builder.Services.AddScoped<IUserLogic, UserLogic>();
 #endregion
 
 #region Repository
 builder.Services.AddSingleton<ITaskItemRepository, TaskItemRepository>();
 builder.Services.AddSingleton<ITaskCategoryRepository, TaskCategoryRepository>();
 builder.Services.AddSingleton<ITaskPriorityRepository, TaskPriorityRepository>();
+builder.Services.AddSingleton<IUserRepository, UserRepository>();
 #endregion
 
 #region Mappers
 builder.Services.AddSingleton<ITaskItemMapper, TaskItemMapper>();
 builder.Services.AddSingleton<ITaskCategoryMapper, TaskCategoryMapper>();
 builder.Services.AddSingleton<ITaskPriorityMapper, TaskPriorityMapper>();
+builder.Services.AddSingleton<IUserMapper, UserMapper>();
 #endregion
 
 builder.Services.AddControllers();
