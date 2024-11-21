@@ -13,7 +13,7 @@ namespace TaskManagementApp.Api.Controllers
         private readonly ITaskPriorityLogic _taskPriorityLogic;
         #endregion
 
-        #region Constgructor
+        #region Constructor
         public TaskPriorityController(ILogger<TaskPriorityController> logger, ITaskPriorityLogic taskPriorityLogic)
         {
             _logger = logger;
