@@ -21,16 +21,19 @@ builder.Services.AddSingleton<IDbExecutor, DbExecutor>();
 #region BusinessLogic
 builder.Services.AddScoped<ITaskItemLogic, TaskItemLogic>();
 builder.Services.AddScoped<ITaskCategoryLogic, TaskCategoryLogic>();
+builder.Services.AddScoped<ITaskPriorityLogic, TaskPriorityLogic>();
 #endregion
 
 #region Repository
 builder.Services.AddSingleton<ITaskItemRepository, TaskItemRepository>();
 builder.Services.AddSingleton<ITaskCategoryRepository, TaskCategoryRepository>();
+builder.Services.AddSingleton<ITaskPriorityRepository, TaskPriorityRepository>();
 #endregion
 
 #region Mappers
 builder.Services.AddSingleton<ITaskItemMapper, TaskItemMapper>();
 builder.Services.AddSingleton<ITaskCategoryMapper, TaskCategoryMapper>();
+builder.Services.AddSingleton<IPriorityMapper, PriorityMapper>();
 #endregion
 
 builder.Services.AddControllers();
