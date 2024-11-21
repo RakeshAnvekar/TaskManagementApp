@@ -22,7 +22,6 @@ namespace TaskManagementApp.Api.Controllers
         #endregion
 
         #region Methods
-        [HttpGet("GetAllTakTaskPriorities")]
         public async Task<IActionResult> Get()
         {
             try

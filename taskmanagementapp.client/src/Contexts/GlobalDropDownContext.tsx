@@ -11,10 +11,12 @@ const GlobalDropDownContext= createContext<IGlobalDropDownContextType | undefine
 
 const GlobalDropDownContextProvider: React.FC<ApiProviderProps> = ({ children }) => {
     const [categoriesData, setCategoriesData] = useState<ITaskCategory[]|null>(null);   
+   const[prioritiesData,setPrioritiesData]=useState<ITaskPriority[]|null>(null);
     const [loading, setLoading] = useState<boolean>(true);
     const [error, setError] = useState<string | null>(null);
     const iocHelper=new IocHelper();
     const taskCategoryRepository=iocHelper.getTaskCategoryRepository();
+    const taskPriorityRepository= iocHelper.getTaskPriorityRepository();
 
 
     useEffect(() => {
@@ -30,11 +32,24 @@ const GlobalDropDownContextProvider: React.FC<ApiProviderProps> = ({ children })
             setLoading(false);
           }
         };
+        const fetchTaskPriorityData=async()=>{
+          try{
+            setLoading(true);
+            const priorities=await taskPriorityRepository.getAllTaskPriorities();
+            setPrioritiesData(priorities);
+          }catch(error){
+            setError('Failed to fetch data');
+
+          }finally{
+            setLoading(false);
+          }
+        }
     
         fetchTaskCategiryData();
+        fetchTaskPriorityData();
       }, []);
       return(
-        <GlobalDropDownContext.Provider value={{categoriesData,loading,error}}>
+        <GlobalDropDownContext.Provider value={{categoriesData,prioritiesData,loading,error}}>
         {children}
         </GlobalDropDownContext.Provider>)
 }
