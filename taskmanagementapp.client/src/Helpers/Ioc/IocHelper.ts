@@ -2,11 +2,14 @@ import { ITaskCategoryRepository } from "../../Repositories/TaskCategory/ITaskCa
 import TaskCategoryRepository from "../../Repositories/TaskCategory/TaskCategoryRepository";
 import { ITaskItemRepository } from "../../Repositories/TaskItem/ITaskItemRepository";
 import TaskItemRepository from "../../Repositories/TaskItem/TaskItemRepository";
+import { ITaskPriorityRepository } from "../../Repositories/TaskPriority/ITaskPriorityRepository";
+import TaskPriorityRepository from "../../Repositories/TaskPriority/TaskPriorityRepository";
 
 export default class IocHelper{
     private static taskItemRepository:ITaskItemRepository | null = null;
     private static taskCategoryRepository:ITaskCategoryRepository|null=null
-;
+;private static taskPriorityRepository:ITaskPriorityRepository|null=null;
+
     public readonly getTaskItemRepository=():ITaskItemRepository=>{
         if(IocHelper.taskItemRepository!==null)
             return IocHelper.taskItemRepository;
@@ -20,6 +23,11 @@ export default class IocHelper{
 
         IocHelper.taskCategoryRepository=new TaskCategoryRepository();
         return IocHelper.taskCategoryRepository;
+    }
+    public readonly getTaskPriorityRepository=():ITaskPriorityRepository=>{
+        if(IocHelper.taskPriorityRepository!==null)  return IocHelper.taskPriorityRepository;
+        IocHelper.taskPriorityRepository= new TaskPriorityRepository();
+        return IocHelper.taskPriorityRepository;
     }
 
 }

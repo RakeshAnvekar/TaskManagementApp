@@ -33,4 +33,23 @@ use TaskManagementDb
   )
 
  
+ Create Table UserType(
+ UserTypeId int identity not null primary key,
+ UserType varchar(100) not null,
+ Active bit not null
+ )
+
+ Create Table [User](
+ UserId int not null identity(1,100) primary key,
+ UserName varchar(100) not null,
+ UserEmailId varchar(100) not null,
+ UserPassword varchar(100) not null,
+ UserConfirmPassword varchar(100) not null,
+ CreatedDate datetime not null,
+ UserTypeId int not null,
+ IsActive Bit not null,
+ foreign key(UserTypeId) references UserType(UserTypeId)
+ )
+
+
 

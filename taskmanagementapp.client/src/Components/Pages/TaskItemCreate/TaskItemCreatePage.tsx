@@ -66,11 +66,12 @@ const handleBackButtonClick=async()=>{
           </select>          
           <br/>
           <br/>
-          <span>Priority</span><select id="taskPriority" name="taskPriority" className="createTaskItem__Input" value={taskPriority} onChange={(e)=>setTaskPriority(Number(e.target.value))}>
-                <option value={1}>Low</option>
-                <option value={2}>Medium</option>
-                <option value={3}>High</option>
-          </select>
+          <span>Priority</span>
+          <select id="taskPriority" name="taskPriority" className="createTaskItem__Input" value={taskPriority} onChange={(e)=>setTaskPriority(Number(e.target.value))}>
+          {context?.prioritiesData?.map(priority=>
+            <option value={priority.taskPriorityId}>{priority.priority}</option>
+           )}; 
+           </select>
           <br/>
           <br/>
           <span>Description</span><textarea  id="taskDescription" name="taskDescription" required className="createTaskItem__Input-textarea" value={taskDesctiption} onChange={(e)=>setTaskDescription(e.target.value)}></textarea >

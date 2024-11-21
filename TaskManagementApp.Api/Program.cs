@@ -31,6 +31,7 @@ builder.Services.AddSingleton<ITaskCategoryRepository, TaskCategoryRepository>()
 #region Mappers
 builder.Services.AddSingleton<ITaskItemMapper, TaskItemMapper>();
 builder.Services.AddSingleton<ITaskCategoryMapper, TaskCategoryMapper>();
+builder.Services.AddSingleton<ITaskPriorityMapper, TaskPriorityMapper>();
 #endregion
 
 builder.Services.AddControllers();

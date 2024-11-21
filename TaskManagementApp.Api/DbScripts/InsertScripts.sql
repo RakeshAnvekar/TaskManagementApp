@@ -41,3 +41,15 @@ insert into  dbo.TaskPriority values('High');
 ( 'Attend meeting', 'Meeting with the team at 10 AM to discuss project updates', 0, '2024-11-17 10:00:00', 2, 3,1);
 
 
+insert into UserType values('Admin',1);
+insert into UserType values('Registered User',1);
+insert into UserType values('Guest User',1);
+
+
+insert into [User] values('Rakesh','Rakesh@gmail.com','Rakesh@123','Rakesh@123',GETDATE(),1,1)
+insert into [User] values('Deeksha','Deeksha@gmail.com','Deeksha@123','Deeksha@123',GETDATE(),2,1)
+insert into [User] values('Roshan','Roshan@gmail.com','Roshan@123','Roshan@123',GETDATE(),3,1)
+
+
+
+
