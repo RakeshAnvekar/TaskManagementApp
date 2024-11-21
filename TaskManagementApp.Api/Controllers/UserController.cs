@@ -17,7 +17,7 @@ namespace TaskManagementApp.Api.Controllers
         public UserController(IUserLogic userLogic, ILogger<UserController> logger)
         {
             _userLogic = userLogic;
-            
+
         }
         #endregion
         #region Methods
@@ -26,13 +26,15 @@ namespace TaskManagementApp.Api.Controllers
         {
             try
             {
-               var result= await _userLogic.CreateUserAsync(userRegistraion,HttpContext.RequestAborted);
+                var result = await _userLogic.CreateUserAsync(userRegistraion, HttpContext.RequestAborted);
                 return Ok(result);
             }
-            catch (Exception ex) {
+            catch (Exception ex)
+            {
                 _logger.LogError($"Error while Creating new User,Exception : {ex.InnerException}");
-            return BadRequest(ex.Message);
+                return BadRequest(ex.Message);
             }
-        #endregion
+            #endregion
+        }
     }
 }
