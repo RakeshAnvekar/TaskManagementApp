@@ -1,5 +1,5 @@
-﻿using System.Data;
-using TaskManagementApp.Api.Models.Priority;
+using System.Data;
+using TaskManagementApp.Api.Models;
 
 namespace TaskManagementApp.Api.Mappers.Interfaces;
 

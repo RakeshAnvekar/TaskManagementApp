@@ -1,10 +1,7 @@
-﻿using Microsoft.AspNetCore.Http.Features;
-using System;
 using System.Data;
-using System.Data.SqlTypes;
 using TaskManagementApp.Api.DbExecutor.Interface;
 using TaskManagementApp.Api.Mappers.Interfaces;
-using TaskManagementApp.Api.Models.Priority;
+using TaskManagementApp.Api.Models;
 using TaskManagementApp.Api.Repositories.Interfaces;
 
 namespace TaskManagementApp.Api.Repositories;
@@ -28,8 +25,8 @@ public sealed class TaskPriorityRepository:ITaskPriorityRepository
     public async Task<List<TaskPriority>?> SelectAllAsync(CancellationToken cancellationToken)
     {
         const string sql = @"SELECT TaskPriorityId,[Priority] from TaskPriority";
-      var items= await _executor.ExecuteQueryAsync(sql, CommandType.Text, cancellationToken, _taskPriorityMapper.MapPriorities, null);
-        return items;        
+        var items = await _executor.ExecuteQueryAsync(sql, CommandType.Text, cancellationToken, _taskPriorityMapper.MapPriorities, null);
+        return items;
     }
     #endregion
 }

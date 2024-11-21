@@ -1,15 +1,14 @@
-﻿using TaskManagementApp.Api.Models.Priority;
+using TaskManagementApp.Api.Models;
 
-namespace TaskManagementApp.Api.Repositories.Interfaces
+namespace TaskManagementApp.Api.Repositories.Interfaces;
+
+public interface ITaskPriorityRepository
 {
-    public interface ITaskPriorityRepository
-    {
     /// <summary>
     /// Gets all the Task Priorty dropdown values from data source
     /// </summary>
     /// <returns>
     /// All Active Task Priority items.
     /// </returns>
-        public Task<List<TaskPriority>?> SelectAllAsync(CancellationToken cancellationToken);
-    }
+    public Task<List<TaskPriority>?> SelectAllAsync(CancellationToken cancellationToken);
 }

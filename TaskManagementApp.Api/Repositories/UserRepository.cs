@@ -32,7 +32,6 @@ public class UserRepository : IUserRepository
             { "@UserEmailId",user.UserEmailId},
             { "@UserPassword",user.UserPassword},
             { "@UserConfirmPassword",user.UserConfirmPassword},
-            { "@UserConfirmPassword",user.UserConfirmPassword},
         };
 
         await _dbExecutor.ExecuteAsync(sql, CommandType.Text, cancellationtoken, inputParameters);
