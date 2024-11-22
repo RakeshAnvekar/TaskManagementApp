@@ -8,24 +8,14 @@ pipeline {
     }
 
     stages {
-        stage('Checkout') {
-            steps {
-                echo 'Checking out code from Git repository...'
-                checkout scm  // Checks out the repository code
-            }
+      stage('Restore Dependencies') {
+    steps {
+        echo 'Restoring NuGet packages...'
+        script {
+            bat 'dotnet restore TaskManagementApp.sln --no-cache'
         }
-
-        stage('Restore Dependencies') {
-            steps {
-                echo 'Restoring NuGet packages...'
-                script {
-                    // Runs dotnet restore for the solution
-                    bat 'dotnet restore TaskManagementApp.sln'  // Replace TaskManagementApp.sln with your actual solution name
-                }
-            }
-        }
-
-        stage('Build') {
+    }
+}
             steps {
                 echo 'Building the solution...'
                 script {
