@@ -4,7 +4,7 @@ pipeline {
     environment {
         // You can set up environment variables like the path to the .NET SDK if needed
         DOTNET_HOME = 'C:\\Program Files\\dotnet'  // Adjust this if you're using a custom SDK location
-        PATH = "${DOTNET_HOME}\\bin:${env.PATH}"  // Add .NET to PATH
+        //PATH = "${DOTNET_HOME}\\bin:${env.PATH}"  // Add .NET to PATH
     }
 
     stages {
