@@ -21,7 +21,7 @@ namespace TaskManagementApp.Api.Controllers
         }
         #endregion
         #region Methods
-        [HttpPost]
+        [HttpPost("Register")]
         public async Task<IActionResult> Post(UserRegistraion userRegistraion)
         {
             try
