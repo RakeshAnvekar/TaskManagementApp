@@ -5,6 +5,7 @@ import TaskItemDetailsCard from './Components/Pages/TaskItemDetailsCard/TaskItem
 import TaskItemCreatePage from './Components/Pages/TaskItemCreate/TaskItemCreatePage';
 import { GlobalDropDownContextProvider } from './Contexts/GlobalDropDownContext';
 import UserRegistrationPage from './Components/Pages/UserRegistration/UserRegistrationPage';
+import UserLoginPage from './Components/Pages/UserLogin/UserLoginPage';
 
 
 
@@ -15,11 +16,12 @@ function App() {
   <GlobalDropDownContextProvider>
     <BrowserRouter>
         <Routes>
-          <Route path='/' element={<TaskItemsPage/>}/>
+          <Route path='/' element={<UserLoginPage/>}/>
           <Route path='/details/:taskId' element={<TaskItemDetailsCard/>}/> 
           <Route path='/createTask' element={<TaskItemCreatePage/>} />
           <Route path='/userRegistration' element={<UserRegistrationPage/>} />   
-        </Routes>    
+          <Route path='/userTasks' element={<TaskItemsPage/>} />   
+        </Routes>
       </BrowserRouter>
   </GlobalDropDownContextProvider>
    

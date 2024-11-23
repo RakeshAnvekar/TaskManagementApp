@@ -14,14 +14,12 @@ public sealed class UserLogic : IUserLogic
         _userRepository = userRepository;        
     }
     #region Methods
-
-    #endregion
     public async Task<UserTracking> CreateUserAsync(UserRegistraion user, CancellationToken cancellation)
     {
-        
-       if(user==null) throw  new ArgumentNullException(nameof(user));
-       if(user.UserEmailId==null | user.UserEmailId==string.Empty) throw new ArgumentNullException(nameof(user.UserEmailId));
-        
+
+        if (user == null) throw new ArgumentNullException(nameof(user));
+        if (user.UserEmailId == null | user.UserEmailId == string.Empty) throw new ArgumentNullException(nameof(user.UserEmailId));
+
         var userTrackking = new UserTracking();
 
         var userDetails = await _userRepository.GetUserAsync(user?.UserEmailId, cancellation);
@@ -29,11 +27,37 @@ public sealed class UserLogic : IUserLogic
         {
             await _userRepository.CreateUserAsync(user, cancellation);
             userTrackking.IsUserFound = false;
-            userTrackking.UserCreated = true;            
+            userTrackking.UserCreated = true;
             return userTrackking;
         }
         userTrackking.IsUserFound = true;
         userTrackking.UserCreated = false;
         return userTrackking;
     }
+
+    public async Task<UserLogin?> UserLoginAsync(UserLogin userLogin, CancellationToken cancellation)
+    {
+        var user=new UserLogin();
+        if (userLogin==null)
+        {
+            throw new ArgumentNullException("User login object should not null");
+        }
+        if(string.IsNullOrEmpty(userLogin.UserEmailId))
+        {
+            throw new ArgumentNullException("User email id should not null");
+        }
+        if (string.IsNullOrEmpty(userLogin.UserPassword))
+        {
+            throw new ArgumentNullException("User password should not null");
+        }
+        var userDetails = await _userRepository.IsUserExists(userLogin.UserEmailId,userLogin.UserPassword, cancellation);
+        if (userDetails!=null)
+        {
+            user.UserEmailId = userDetails.UserEmailId;
+            return user;
+        }
+        return null;       
+    }
+    #endregion
+
 }
