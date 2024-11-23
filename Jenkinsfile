@@ -1,6 +1,8 @@
 pipeline {
     agent any
-
+ tools {
+        msbuild 'MSBuild 16'  // Adjust this name if you're using a different MSBuild version
+    }
     stages {
         stage('Build') {
             steps {
