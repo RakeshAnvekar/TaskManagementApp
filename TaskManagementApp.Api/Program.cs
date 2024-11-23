@@ -1,3 +1,4 @@
+using Serilog;
 using TaskManagementApp.Api.BusinessLogics;
 using TaskManagementApp.Api.BusinessLogics.Interfaces;
 using TaskManagementApp.Api.DbExecutor;
@@ -11,7 +12,16 @@ using TaskManagementApp.Api.Repositories.Interfaces;
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddLogging();
 
-// Add services to the container.
+
+
+#region Splunk Integration
+var serilog = new LoggerConfiguration().WriteTo.EventCollector(
+    splunkHost: "http://localhost:8088/services/collector",
+    eventCollectorToken: "1171a65b-cacd-41c2-862e-8a0dc5c737ab",
+    index: "Idx_SplunkLog_TaskManagementApp"
+        ).CreateLogger();
+builder.Logging.AddSerilog(serilog);
+#endregion 
 
 
 #region DbExecutor
