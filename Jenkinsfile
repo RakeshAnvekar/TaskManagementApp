@@ -7,7 +7,7 @@ pipeline {
                 echo 'Building the ASP.NET solution...'
                 script {
                     // Adjust the path to your solution file (example here assumes it's in the root)
-                    def solutionFile = 'YourSolution.sln'  // or 'src/YourSolution.sln' or 'path/to/yourSolution.sln'
+                    def solutionFile = 'TaskManagementApp.sln'  // or 'src/YourSolution.sln' or 'path/to/yourSolution.sln'
 
                     // If MSBuild is in the PATH, just use "msbuild" command directly:
                     bat "msbuild ${solutionFile} /p:Configuration=Release"
