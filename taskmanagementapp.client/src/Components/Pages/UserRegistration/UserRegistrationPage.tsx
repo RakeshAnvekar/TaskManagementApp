@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "../../../Components/Pages/UserRegistration/UserRegistrationPage.css"
 import IocHelper from "../../../Helpers/Ioc/IocHelper";
 import { IUserRegistration } from "../../../Models/IUserRegistration";
+import { useNavigate } from "react-router-dom";
 
 const  UserRegistrationPage:React.FC=()=>{
     const[userName,setUserName]=useState<string>("");
@@ -10,7 +11,7 @@ const  UserRegistrationPage:React.FC=()=>{
     const[confirmPassword,setConfirmPassword]=useState<string>("");
     const iocHelper= new IocHelper();
     const userRegistrationRepository=iocHelper.getUserRegistrationRepository();
-
+    const navigation=useNavigate();
 
     //for erros
     const [errors, setErrors] = useState({
@@ -64,7 +65,8 @@ const  UserRegistrationPage:React.FC=()=>{
       var result= await userRegistrationRepository.register(user);
       if(result!=null){
         clearRegistrationFields();
-        alert("Saved Sucessfully");        
+        alert("Saved Sucessfully"); 
+        navigation("/")       
       }
        }       
     }

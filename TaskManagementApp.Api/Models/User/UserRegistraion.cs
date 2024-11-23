@@ -10,5 +10,6 @@ public class UserRegistraion
     public DateTime? CreatedDate { get; set; } = DateTime.UtcNow; 
     public int UserTypeId { get; set; }
     public bool IsActive { get; set; }
-   
+    public bool? IsLoggedIn { get; set; }
+
 }

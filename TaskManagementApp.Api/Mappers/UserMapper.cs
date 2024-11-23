@@ -11,13 +11,13 @@ public class UserMapper : IUserMapper
       if(!dataReader.Read()) return null;
         return new UserRegistraion
         {
-            UserId= dataReader["UserId"] != DBNull.Value ? Convert.ToInt32(dataReader["UserId"]) : 0,
+            UserId = dataReader["UserId"] != DBNull.Value ? Convert.ToInt32(dataReader["UserId"]) : 0,
             UserName = dataReader["UserName"] != DBNull.Value ? (dataReader["UserName"].ToString()) : "N/A",
             UserEmailId = dataReader["UserEmailId"] != DBNull.Value ? (dataReader["UserEmailId"].ToString()) : "N/A",
             UserPassword = dataReader["UserPassword"] != DBNull.Value ? (dataReader["UserPassword"].ToString()) : "N/A",
             UserConfirmPassword = dataReader["UserConfirmPassword"] != DBNull.Value ? (dataReader["UserConfirmPassword"].ToString()) : "N/A",
-            UserTypeId = dataReader["UserTypeId"] != DBNull.Value ? Convert.ToInt32(dataReader["UserTypeId"]) : 0 ,
-            IsActive = dataReader["IsActive"] != DBNull.Value ? Convert.ToBoolean(dataReader["IsActive"]) : false ,
+            UserTypeId = dataReader["UserTypeId"] != DBNull.Value ? Convert.ToInt32(dataReader["UserTypeId"]) : 0,
+            IsActive = dataReader["IsActive"] != DBNull.Value ? Convert.ToBoolean(dataReader["IsActive"]) : false,
             CreatedDate = dataReader["CreatedDate"] != DBNull.Value ? Convert.ToDateTime(dataReader["CreatedDate"]) : DateTime.UtcNow,
         };
     }

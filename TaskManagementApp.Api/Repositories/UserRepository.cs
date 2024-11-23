@@ -26,7 +26,7 @@ public class UserRepository : IUserRepository
     {
         if(user==null) throw new ArgumentNullException(nameof(user));
 
-        const string sql = @"insert into [User] values(@UserName,@UserEmailId,@UserPassword,@UserConfirmPassword,getdate(),2,1)";
+        const string sql = @"insert into [User] values(@UserName,@UserEmailId,@UserPassword,@UserConfirmPassword,getdate(),2,1,0)";
         var inputParameters = new Dictionary<string, object?>() {
             { "@UserName",user.UserName},
             { "@UserEmailId",user.UserEmailId},
@@ -43,6 +43,16 @@ public class UserRepository : IUserRepository
         const string sql = @"SELECT * from [User] where UserEmailId=@UserEmailId";
         var inputParameters = new Dictionary<string, object?>() {
            { "@UserEmailId",userEmailId},           
+        };
+        return await _dbExecutor.ExecuteQueryAsync(sql, CommandType.Text, cancellation, _userMapper.MapUser, inputParameters);
+       }
+
+    public async Task<UserRegistraion?> IsUserExists(string userEmailId, string password, CancellationToken cancellation)
+    {
+        const string sql = @"SELECT * from [User] where UserEmailId=@UserEmailId and UserPassword=@UserPassword";
+        var inputParameters = new Dictionary<string, object?>() {
+           { "@UserEmailId",userEmailId},
+           { "@UserPassword",password},
         };
         return await _dbExecutor.ExecuteQueryAsync(sql, CommandType.Text, cancellation, _userMapper.MapUser, inputParameters);
        }
