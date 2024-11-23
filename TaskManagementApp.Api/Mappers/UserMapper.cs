@@ -18,7 +18,7 @@ public class UserMapper : IUserMapper
             UserConfirmPassword = dataReader["UserConfirmPassword"] != DBNull.Value ? (dataReader["UserConfirmPassword"].ToString()) : "N/A",
             UserTypeId = dataReader["UserTypeId"] != DBNull.Value ? Convert.ToInt32(dataReader["UserTypeId"]) : 0 ,
             IsActive = dataReader["IsActive"] != DBNull.Value ? Convert.ToBoolean(dataReader["IsActive"]) : false ,
-            CreatedDate = dataReader["CreatedDate"] != DBNull.Value ? Convert.ToDateTime(dataReader["IsActive"]) : DateTime.UtcNow,
+            CreatedDate = dataReader["CreatedDate"] != DBNull.Value ? Convert.ToDateTime(dataReader["CreatedDate"]) : DateTime.UtcNow,
         };
     }
 
