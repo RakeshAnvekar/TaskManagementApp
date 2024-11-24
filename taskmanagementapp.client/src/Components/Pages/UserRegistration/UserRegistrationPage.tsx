@@ -76,6 +76,9 @@ const  UserRegistrationPage:React.FC=()=>{
         setPassword("");
         setConfirmPassword("");
     }
+    const handleClickLogin=()=>{
+      navigation("/")
+    }
    
     return <>
     <h3>User Registration Page</h3>
@@ -98,7 +101,8 @@ const  UserRegistrationPage:React.FC=()=>{
     <br/>{errors.confirmPassword?errors.confirmPassword:""}
     <br/>
     <br/>
-    <button className="button" onClick={handleClickRegister}>Register</button>
+    <span><button className="button" onClick={handleClickRegister}>Register</button>
+    <button className="button" onClick={handleClickLogin}>Login</button></span>    
       
     </div>      
 </div></>
