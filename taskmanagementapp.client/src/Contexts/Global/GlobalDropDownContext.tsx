@@ -1,6 +1,6 @@
 import React, { createContext, ReactNode, useEffect, useState } from "react";
-import { ITaskCategory } from "../Models/TaskCategory";
-import IocHelper from "../Helpers/Ioc/IocHelper";
+import { ITaskCategory } from "../../Models/TaskCategory";
+import IocHelper from "../../Helpers/Ioc/IocHelper";
 
 
   interface ApiProviderProps {

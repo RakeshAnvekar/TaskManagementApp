@@ -1,8 +1,9 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { ITaskItem } from "../../../Models/TaskItem";
 import IocHelper from "../../../Helpers/Ioc/IocHelper";
 import { Link, useNavigate} from "react-router-dom";
 import  "../../Pages/TaskItems/TaskItemsPage.css"
+import { userContext } from "../../../Contexts/User/UserContext";
 
 
 
@@ -11,6 +12,7 @@ const TaskItemsPage: React.FC = () => {
     const iocHelper=new IocHelper();
     const itemTaskRepository= iocHelper.getTaskItemRepository();
     const navigate= useNavigate();
+    const userLoginContext=useContext(userContext);
   
     useEffect(() => {
       const fetchTasks = async () => {   
@@ -31,8 +33,15 @@ const TaskItemsPage: React.FC = () => {
   const handleCreateNewItem=async()=>{
     navigate("/createTask");
   }
+  const handleUserLogout=()=>{
+    userLoginContext?.setUserData(null);
+    navigate("/");
+  }
     return (
         <div>
+            <span>Login Email Id:</span>{userLoginContext?.user?.email} 
+            <button onClick={handleUserLogout} className="createNewItem__button">Logout</button>
+         
           <h3>Active Tasks</h3>
           {tasks?.length==0 &&<p>No Task item to show</p>}
           <ul className="styled-list">

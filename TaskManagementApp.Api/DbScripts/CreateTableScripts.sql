@@ -48,6 +48,7 @@ use TaskManagementDb
  CreatedDate datetime not null,
  UserTypeId int not null,
  IsActive Bit not null,
+ IsLoggedIn bit,
  foreign key(UserTypeId) references UserType(UserTypeId)
  )
 
