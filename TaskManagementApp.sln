@@ -12,6 +12,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		.gitignore = .gitignore
 	EndProjectSection
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{A9D9B52D-F64C-4CF8-8410-CF685763A33A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaskManagementApp.Api.UnitTest", "TaskManagementApp.Api.UnitTest\TaskManagementApp.Api.UnitTest.csproj", "{9246A34B-9C4C-4190-8369-4DB0ABB064A0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -28,9 +32,16 @@ Global
 		{B3ACDA2E-D4B4-4D25-840A-480D4E2CFC19}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B3ACDA2E-D4B4-4D25-840A-480D4E2CFC19}.Release|Any CPU.Build.0 = Release|Any CPU
 		{B3ACDA2E-D4B4-4D25-840A-480D4E2CFC19}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{9246A34B-9C4C-4190-8369-4DB0ABB064A0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9246A34B-9C4C-4190-8369-4DB0ABB064A0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9246A34B-9C4C-4190-8369-4DB0ABB064A0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9246A34B-9C4C-4190-8369-4DB0ABB064A0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{9246A34B-9C4C-4190-8369-4DB0ABB064A0} = {A9D9B52D-F64C-4CF8-8410-CF685763A33A}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {40179061-C7C7-4320-A173-4780964A56C7}
