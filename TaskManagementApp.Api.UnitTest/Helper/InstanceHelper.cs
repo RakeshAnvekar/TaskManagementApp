@@ -23,6 +23,7 @@ internal sealed class InstanceHelper
     private ITaskItemRepository _taskItemRepository;
     private ITaskPriorityRepository _taskPriorityRepository;
     private IUserRepository _userRepository;
+    private ITaskCategoryRepository _taskCategoryRepository;
     #endregion
 
     #region Methods  
@@ -81,6 +82,17 @@ internal sealed class InstanceHelper
                 _dataHelper.userRegistraions.Add(userRegistraion);
             });
 
+        return mock.Object;
+    }
+
+    public ITaskCategoryRepository GetTaskCategoryRepository()
+    {
+        if (_taskCategoryRepository != null)
+        {
+            return _taskCategoryRepository;
+        }
+        var mock=new Mock<ITaskCategoryRepository>();
+        mock.Setup(static x => x.SelectAllAsync(It.IsAny<CancellationToken>())).ReturnsAsync(_dataHelper.TaskCategories);
         return mock.Object;
     }
 

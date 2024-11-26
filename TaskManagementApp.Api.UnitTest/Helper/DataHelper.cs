@@ -100,4 +100,17 @@ internal sealed class DataHelper
         UserTypeId=2
         },
     };
+    public List<TaskCategory> taskCategories { get; set; } = new()
+    {
+        new TaskCategory
+        {
+            TaskCategoryId=1,
+            Category="Home"
+        },
+        new TaskCategory
+        {
+            TaskCategoryId=2,
+            Category="Test"
+        },
+    };
 }
