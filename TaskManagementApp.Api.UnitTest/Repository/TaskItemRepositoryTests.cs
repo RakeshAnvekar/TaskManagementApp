@@ -7,9 +7,14 @@ namespace TaskManagementApp.Api.UnitTest.Repository;
 [TestClass]
 public sealed class TaskItemRepositoryTests
 {
+    #region Properties
+
     private ITaskItemRepository _taskItemRepository=null;
     private DataHelper _dataHelper;
 
+    #endregion
+
+    #region Test Setup
     [TestInitialize]
     public void Setup()
     {
@@ -17,6 +22,9 @@ public sealed class TaskItemRepositoryTests
         var instanceHelper = new InstanceHelper(_dataHelper);
         _taskItemRepository = instanceHelper.GetTaskItemRepository();
     }
+    #endregion
+
+    #region Test Methods
 
     [TestMethod]
     public void TaskItemRepository_SelectAllAsync_Returns_AllTaskItems_Sucessfully()
@@ -58,4 +66,5 @@ public sealed class TaskItemRepositoryTests
       var taskItemAfterCreate=  _taskItemRepository.CreateAsync(taskItem, CancellationToken.None);
         Assert.IsNotNull(taskItemAfterCreate);
     }
+    #endregion
 }
