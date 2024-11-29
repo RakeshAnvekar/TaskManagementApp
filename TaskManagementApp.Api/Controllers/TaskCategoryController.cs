@@ -26,7 +26,7 @@ namespace TaskManagementApp.Api.Controllers
         {
             try
             {
-                var items = await _taskCategoryLogic.GetTaskItemsAsync(HttpContext.RequestAborted);
+                var items = await _taskCategoryLogic.GetTaskCategoriesAsync(HttpContext.RequestAborted);
                 return Ok(items);
             }
             catch (Exception ex) {

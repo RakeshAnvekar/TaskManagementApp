@@ -18,7 +18,7 @@ public sealed class TaskCategoryLogic : ITaskCategoryLogic
     #endregion
 
     #region Methods
-    public async Task<List<TaskCategory>?> GetTaskItemsAsync(CancellationToken cancellationToken)
+    public async Task<List<TaskCategory>?> GetTaskCategoriesAsync(CancellationToken cancellationToken)
     {
      return await _taskCategoryRepository.SelectAllAsync(cancellationToken);        
     }

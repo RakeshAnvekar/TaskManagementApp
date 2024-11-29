@@ -6,6 +6,6 @@ namespace TaskManagementApp.Api.BusinessLogics.Interfaces;
 public interface ITaskCategoryLogic
 {
     #region Methods
-    public Task<List<TaskCategory>?> GetTaskItemsAsync(CancellationToken cancellationToken);
+    public Task<List<TaskCategory>?> GetTaskCategoriesAsync(CancellationToken cancellationToken);
     #endregion
 }
