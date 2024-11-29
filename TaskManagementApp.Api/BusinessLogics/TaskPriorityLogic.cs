@@ -1,7 +1,8 @@
-﻿using TaskManagementApp.Api.Models;
+﻿using TaskManagementApp.Api.BusinessLogics.Interfaces;
+using TaskManagementApp.Api.Models;
 using TaskManagementApp.Api.Repositories.Interfaces;
 
-namespace TaskManagementApp.Api.BusinessLogics.Interfaces;
+namespace TaskManagementApp.Api.BusinessLogics;
 
 public class TaskPriorityLogic : ITaskPriorityLogic
 {
