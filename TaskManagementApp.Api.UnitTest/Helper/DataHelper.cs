@@ -113,4 +113,21 @@ internal sealed class DataHelper
             Category="Test"
         },
     };
+
+    public List<UserLogin> userLogins { get; set; } = new()
+    {
+        new UserLogin(){
+            UserEmailId="test1@gamil.com",
+            UserPassword="test@123",
+            IsLoggedIn=true,
+        },
+        new UserLogin()
+        {
+            UserEmailId="test2@gamil.com",
+            UserPassword="test12345",
+            IsLoggedIn=true,
+        }
+
+    };
+
 }
