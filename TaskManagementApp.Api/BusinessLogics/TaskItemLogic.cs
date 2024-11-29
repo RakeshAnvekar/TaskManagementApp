@@ -12,9 +12,8 @@ public sealed class TaskItemLogic : ITaskItemLogic
     #endregion
 
     #region Constructors
-    public TaskItemLogic(ILogger<TaskItemLogic> logger, ITaskItemRepository taskItemRepository)
+    public TaskItemLogic( ITaskItemRepository taskItemRepository)
     {
-        _logger = logger;
         _taskItemRepository = taskItemRepository;        
     }
 
