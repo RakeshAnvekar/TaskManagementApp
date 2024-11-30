@@ -6,7 +6,6 @@ import { ITaskItem } from "../../../Models/TaskItem";
 import { useNavigate } from "react-router-dom";
 import backButtonIcon from "../../../assets/Icons/backButtonIcon.jpg";
 import { GlobalDropDownContext } from "../../../Contexts/Global/GlobalDropDownContext";
-import { userContext } from "../../../Contexts/User/UserContext";
 
 const TaskItemCreatePage: React.FC = () => {
   const [taskTitle,setTaskTitle]=useState('');
@@ -20,9 +19,7 @@ const TaskItemCreatePage: React.FC = () => {
   const iocHelper=new IocHelper();
   const taskRepository=iocHelper.getTaskItemRepository();  
   const context = useContext(GlobalDropDownContext);  
-  const userLoginContext=useContext(userContext);
-
-const handleResetTaskItem=async()=>{
+  const handleResetTaskItem=async()=>{
   setTaskTitle('');
   setTaskDescription('');
   setTaskCategory(0);
@@ -54,7 +51,7 @@ const handleBackButtonClick=async()=>{
  return <>
 
   <div className="createTaskItem__outer_container">
-    <span>Login Email Id:</span>{userLoginContext?.user?.email}
+    
     <br/>
     <br/>
         <span><img src={backButtonIcon} className="backButtonIcon" alt="go to main Page" onClick={handleBackButtonClick} ></img></span><h2>Create New Task Item</h2>

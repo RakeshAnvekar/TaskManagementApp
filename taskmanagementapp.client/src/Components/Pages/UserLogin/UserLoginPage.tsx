@@ -1,14 +1,12 @@
-import React, { useContext, useState } from "react";
+import React, { useState } from "react";
 import IocHelper from "../../../Helpers/Ioc/IocHelper";
 import { useNavigate } from "react-router-dom";
 import "../../Pages/UserLogin/UserLoginPage.css"
-import { userContext } from "../../../Contexts/User/UserContext";
 
 const UserLoginPage:React.FC=()=>{
 
     const[userEmailId,setUserEmailId]=useState("");
     const[password,setPassword]=useState<string>("");
-    const loginUserContext=useContext(userContext)
    
     const iocHelper=new IocHelper();
     const userLoginRepository=iocHelper.getUserLoginRepository();
@@ -20,12 +18,7 @@ const UserLoginPage:React.FC=()=>{
             userPassword: password
         }
     const result=await userLoginRepository.login(user);
-    if(result && result.userEmailId){
-        var loginUser:IUser={
-            name: result.userEmailId,
-            email: result.userEmailId
-        }
-        loginUserContext?.setUserData(loginUser)
+    if(result && result.userEmailId){     
         navigation("/userTasks")
     }
     }
