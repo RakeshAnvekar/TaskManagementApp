@@ -34,7 +34,6 @@ const TaskItemsPage: React.FC = () => {
     navigate("/createTask");
   }
   const handleUserLogout=()=>{
-    userLoginContext?.setUserData(null);
     navigate("/");
   }
     return (

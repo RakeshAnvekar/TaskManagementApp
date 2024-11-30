@@ -1,3 +1,7 @@
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.IdentityModel.Tokens;
+using System.Text;
+using TaskManagementApp.Api.Autentication;
 using TaskManagementApp.Api.BusinessLogics;
 using TaskManagementApp.Api.BusinessLogics.Interfaces;
 using TaskManagementApp.Api.DbExecutor;
@@ -23,6 +27,7 @@ builder.Services.AddScoped<ITaskItemLogic, TaskItemLogic>();
 builder.Services.AddScoped<ITaskCategoryLogic, TaskCategoryLogic>();
 builder.Services.AddScoped<ITaskPriorityLogic, TaskPriorityLogic>();
 builder.Services.AddScoped<IUserLogic, UserLogic>();
+builder.Services.AddScoped<ITokenGenerator, TokenGenerator>();
 #endregion
 
 #region Repository
@@ -45,6 +50,26 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.Configure<ConnectionOption>(builder.Configuration.GetSection("ConnectionOption"));
 
+#region Jwt Token Configuration
+builder.Services.AddAuthentication(options =>
+{
+    options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+    options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+}).AddJwtBearer(options =>
+{
+    options.TokenValidationParameters = new TokenValidationParameters { 
+    ValidateIssuer=true,
+    ValidateAudience=true,
+    ValidateLifetime=true,
+    ValidateIssuerSigningKey=true,
+        ValidIssuer = builder.Configuration["JwtIssuer"],
+        ValidAudience = builder.Configuration["JwtAudience"],
+        IssuerSigningKey=new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["Jwt:Key"]))
+    };
+
+
+});
+#endregion
 
 #region CorsPolicy
 builder.Services.AddCors(options =>
