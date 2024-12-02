@@ -62,8 +62,8 @@ builder.Services.AddAuthentication(options =>
     ValidateAudience=true,
     ValidateLifetime=true,
     ValidateIssuerSigningKey=true,
-        ValidIssuer = builder.Configuration["JwtIssuer"],
-        ValidAudience = builder.Configuration["JwtAudience"],
+        ValidIssuer = builder.Configuration["Jwt:Issuer"],
+        ValidAudience = builder.Configuration["Jwt:Audience"],
         IssuerSigningKey=new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["Jwt:Key"]))
     };
 
@@ -76,12 +76,14 @@ builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowTaskManagemtClientApp", policy =>
     {
-        policy.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod();
+        policy.AllowAnyOrigin()
+       .AllowAnyHeader()
+       .AllowAnyMethod()
+       .WithExposedHeaders("Authorization", "Custom-Header");
     });
 });
 #endregion
 var app = builder.Build();
-app.UseCors("AllowTaskManagemtClientApp");
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
@@ -90,10 +92,10 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-app.UseHttpsRedirection();
-
+app.UseRouting();
+app.UseCors("AllowTaskManagemtClientApp");
+app.UseAuthentication();
 app.UseAuthorization();
-
 app.MapControllers();
 
 app.Run();

@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using TaskManagementApp.Api.BusinessLogics.Interfaces;
@@ -6,9 +7,10 @@ using TaskManagementApp.Api.Models.TaskItem;
 
 namespace TaskManagementApp.Api.Controllers
 {
-   
-    [Route("api/[controller]")]
+
+    [Authorize]
     [ApiController]
+    [Route("api/[controller]")]    
     public class TaskManagementController : ControllerBase
     {
         #region Properties
@@ -37,6 +39,7 @@ namespace TaskManagementApp.Api.Controllers
             }
                 
         }
+       
         [HttpGet("GetTaskDetails")]
         public async Task<IActionResult> Get(int taskItemId)
         {
@@ -52,7 +55,7 @@ namespace TaskManagementApp.Api.Controllers
                 return BadRequest(ex.Message);
             }
 
-        }
+        }       
         [HttpPut("DeleteTask")]
         public async Task<IActionResult> Delete(int taskItemId)
         {
@@ -68,7 +71,7 @@ namespace TaskManagementApp.Api.Controllers
                 return BadRequest(ex.Message);
             }
 
-        }
+        }       
         [HttpPost("CreateNewTaskItem")]
         public async Task<IActionResult> Post([FromBody] TaskItem taskItem)
         {

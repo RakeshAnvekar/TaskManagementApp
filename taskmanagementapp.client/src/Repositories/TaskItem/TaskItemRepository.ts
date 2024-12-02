@@ -6,11 +6,19 @@ export default class TaskItemRepository implements ITaskItemRepository{
   async  deleteTaskItemById(taskItemId: number): Promise<number|null> {
         if(taskItemId == null || undefined) 
             throw new Error("Task Item Id canot be null");
+
+        const token = localStorage.getItem('token');
+        if (!token) {
+            throw new Error("Token not found.");
+        }
         const url=`https://localhost:7296/api/TaskManagement/DeleteTask?taskItemId=${taskItemId}`;
                 try{
             const response=await fetch(url,
                 {method:"Put",
-                    headers:{ "Content-Type": "application/json"}
+                    headers: {
+                        'Authorization': `Bearer ${token}`,
+                           "Content-Type": "application/json"
+                      }
                 });
 
                 if(!response.ok){
@@ -29,14 +37,20 @@ export default class TaskItemRepository implements ITaskItemRepository{
         if(taskItem == null)
         throw new Error("Task item canot be null");
 
+        const token = localStorage.getItem('token');
+        if (!token) {
+            throw new Error("Token not found.");
+        }
         const url="https://localhost:7296/api/TaskManagement/CreateNewTaskItem";
 
         try{
             const response= await fetch(url,{
                 method:"POST",
-                headers:{
-                    "Content-Type": "application/json"
-                },body:JSON.stringify(taskItem)
+                headers: {
+                    'Authorization': `Bearer ${token}`,
+                       "Content-Type": "application/json"
+                  }
+                ,body:JSON.stringify(taskItem)
             });
     
             if(!response.ok){
@@ -54,13 +68,18 @@ export default class TaskItemRepository implements ITaskItemRepository{
 
 async getAllTaskAsync(): Promise<ITaskItem[] | null> {
     const url = "https://localhost:7296/api/TaskManagement/GetAllTasks";
-    
+   
+    const token = localStorage.getItem('token');
+    if (!token) {
+        throw new Error("Token not found.");
+    }
     try {
          const response = await fetch(url, {
             method: "GET", 
             headers: {
-                "Content-Type": "application/json"
-            }
+                'Authorization': `Bearer ${token}`,
+                   "Content-Type": "application/json"
+              }
         });
 
         if (!response.ok) {
@@ -78,12 +97,19 @@ async getAllTaskAsync(): Promise<ITaskItem[] | null> {
 async getTaskDetailsById(taskId:number):Promise<ITaskItem|null>{
     try{
         const url=`https://localhost:7296/api/TaskManagement/GetTaskDetails?taskItemId=${taskId}`
+       
+        const token = localStorage.getItem('token');
+        if (!token) {
+            throw new Error("Token not found.");
+        }
         const response= await fetch(url,{
             method:"GET",
-           headers:{
-            "Content-Type": "application/json"
-           }           
+            headers: {
+                'Authorization': `Bearer ${token}`,
+                   "Content-Type": "application/json"
+              }   
         });
+
         if (!response.ok) {
             console.error(`Error: ${response.statusText}`);
             return null;

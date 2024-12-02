@@ -18,7 +18,8 @@ const UserLoginPage:React.FC=()=>{
             userPassword: password
         }
     const result=await userLoginRepository.login(user);
-    if(result && result.userEmailId){     
+    if(result && result.token){   
+        localStorage.setItem('token', result.token);  
         navigation("/userTasks")
     }
     }
