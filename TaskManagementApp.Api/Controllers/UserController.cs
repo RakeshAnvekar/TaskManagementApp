@@ -10,10 +10,13 @@ namespace TaskManagementApp.Api.Controllers
     public class UserController : ControllerBase
     {
         #region Properties
+
         private readonly IUserLogic _userLogic;
         private readonly ILogger<UserController> _logger;
         private readonly ITokenGenerator _tokenGenerator;
+
         #endregion
+
         #region Constructor
         public UserController(IUserLogic userLogic, ILogger<UserController> logger, ITokenGenerator tokenGenerator)
         {
@@ -23,7 +26,9 @@ namespace TaskManagementApp.Api.Controllers
 
         }
         #endregion
+
         #region Methods
+
         [HttpPost("Register")]
         public async Task<IActionResult> Post(UserRegistraion userRegistraion)
         {
@@ -35,7 +40,7 @@ namespace TaskManagementApp.Api.Controllers
             }
             catch (Exception ex)
             {
-                _logger.LogError($"Error while Creating new User,Exception : {ex.InnerException}");
+                _logger.LogError($"Class : {nameof(UserController)} :Error while Creating new User,Exception : {ex.InnerException}");
                 return BadRequest(ex.Message);
             }
            
@@ -54,17 +59,18 @@ namespace TaskManagementApp.Api.Controllers
                 var tokenValue = await _tokenGenerator.GenerateTokenAsync(user, HttpContext.RequestAborted);
                 if (string.IsNullOrEmpty(tokenValue))
                 {
-                    return NotFound($"Not able to create token for user :{userLogin.UserEmailId}");
+                    return NotFound($"Class : {nameof(UserController)} :Not able to create token for user :{userLogin.UserEmailId}");
                 }
                 return Ok(new { Token = tokenValue });
             }
             catch (Exception ex)
             {
-                _logger.LogError($"Error while using login,Exception : {ex.InnerException}");
+                _logger.LogError($"Class : {nameof(UserController)} :Error while using login,Exception : {ex.InnerException}");
                 return BadRequest(ex.Message);
             }
 
         }
+
         #endregion
     }
 }

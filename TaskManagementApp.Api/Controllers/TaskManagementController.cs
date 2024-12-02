@@ -1,7 +1,5 @@
 ﻿using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
 using TaskManagementApp.Api.BusinessLogics.Interfaces;
 using TaskManagementApp.Api.Models.TaskItem;
 
@@ -14,17 +12,23 @@ namespace TaskManagementApp.Api.Controllers
     public class TaskManagementController : ControllerBase
     {
         #region Properties
+
         private readonly ILogger<TaskManagementController> _logger;
         private readonly ITaskItemLogic _taskItemLogic;
+
         #endregion
+
         #region Constructor
         public TaskManagementController(ILogger<TaskManagementController> logger, ITaskItemLogic taskItemLogic)
         {
             _logger = logger;
             _taskItemLogic = taskItemLogic;
         }
+
         #endregion
+
         #region Methods
+
         [HttpGet("GetAllTasks")]
         public async Task<IActionResult> Get() {
             try
@@ -34,10 +38,9 @@ namespace TaskManagementApp.Api.Controllers
 
             }
             catch (Exception ex) {
-                _logger.LogError($"Error getting TaskItem : Exception : {ex.InnerException}");
+                _logger.LogError($"Class : {nameof(TaskManagementController)} :Error getting TaskItem : Exception : {ex.InnerException}");
                 return BadRequest(ex.Message);            
-            }
-                
+            }                
         }
        
         [HttpGet("GetTaskDetails")]
@@ -51,7 +54,7 @@ namespace TaskManagementApp.Api.Controllers
             }
             catch (Exception ex)
             {
-                _logger.LogError($"Error getting specific task item details: Exception : {ex.InnerException}");
+                _logger.LogError($"Class : {nameof(TaskManagementController)} :Error getting specific task item details: Exception : {ex.InnerException}");
                 return BadRequest(ex.Message);
             }
 
@@ -67,7 +70,7 @@ namespace TaskManagementApp.Api.Controllers
             }
             catch (Exception ex)
             {
-                _logger.LogError($"Error deleteing the Task: Exception : {ex.InnerException}");
+                _logger.LogError($"Class : {nameof(TaskManagementController)} :Error deleteing the Task: Exception : {ex.InnerException}");
                 return BadRequest(ex.Message);
             }
 
@@ -82,7 +85,7 @@ namespace TaskManagementApp.Api.Controllers
             }
             catch (Exception ex)
             {
-                _logger.LogError($"Error while Creating New Task Item, TaskItem : {taskItem}, Exception: {ex.InnerException}");
+                _logger.LogError($"Class : {nameof(TaskManagementController)} :Error while Creating New Task Item, TaskItem : {taskItem}, Exception: {ex.InnerException}");
                 return BadRequest();  
             }
 
@@ -97,10 +100,9 @@ namespace TaskManagementApp.Api.Controllers
             }
             catch (Exception ex)
             {
-                _logger.LogError($"Error while Updating existing Item, TaskItem : {taskItem}, Exception: {ex.InnerException}");
+                _logger.LogError($"Class : {nameof(TaskManagementController)} :Error while Updating existing Item, TaskItem : {taskItem}, Exception: {ex.InnerException}");
                 return BadRequest();
             }
-
         }
 
         #endregion

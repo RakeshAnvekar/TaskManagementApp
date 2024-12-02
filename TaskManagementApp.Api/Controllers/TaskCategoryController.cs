@@ -8,19 +8,24 @@ namespace TaskManagementApp.Api.Controllers
     public class TaskCategoryController : ControllerBase
     {
         #region Properties
+
         private readonly ILogger<TaskCategoryController> _logger;
         private readonly ITaskCategoryLogic _taskCategoryLogic;
+
         #endregion
+
         #region Constructor
         public TaskCategoryController(ILogger<TaskCategoryController> logger, ITaskCategoryLogic taskCategoryLogic)
         {
             _logger = logger;
             _taskCategoryLogic = taskCategoryLogic;
 
+
         }
         #endregion
 
         #region Methods
+
         [HttpGet("GetAllTaskCategory")]
         public async Task<IActionResult> Get()
         {
@@ -30,13 +35,12 @@ namespace TaskManagementApp.Api.Controllers
                 return Ok(items);
             }
             catch (Exception ex) {
-                _logger.LogError($"Error While Geting AllTaskCategory ,Exception {ex.InnerException}");
+                _logger.LogError($"Class {nameof(TaskCategoryController)} : Error While Geting AllTaskCategory ,Exception {ex.InnerException}");
             return BadRequest(ex.Message);  
             }
 
         }
+
         #endregion
-
-
     }
 }
