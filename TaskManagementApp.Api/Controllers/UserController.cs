@@ -54,7 +54,7 @@ namespace TaskManagementApp.Api.Controllers
                 var tokenValue = await _tokenGenerator.GenerateTokenAsync(user, HttpContext.RequestAborted);
                 if (string.IsNullOrEmpty(tokenValue))
                 {
-                    return NotFound($"Not able to Create token for user :{userLogin.UserEmailId}");
+                    return NotFound($"Not able to create token for user :{userLogin.UserEmailId}");
                 }
                 return Ok(new { Token = tokenValue });
             }

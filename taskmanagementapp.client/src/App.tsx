@@ -7,6 +7,7 @@ import { GlobalDropDownContextProvider } from './Contexts/Global/GlobalDropDownC
 import UserRegistrationPage from './Components/Pages/UserRegistration/UserRegistrationPage';
 import UserLoginPage from './Components/Pages/UserLogin/UserLoginPage';
 import { UserContextProvider } from './Contexts/User/UserContext';
+import ProtectedRoute from './Routes/ProtectedRoutes/ProtectedRoute';
 
 
 
@@ -19,10 +20,10 @@ function App() {
         <BrowserRouter>
             <Routes>
               <Route path='/' element={<UserLoginPage/>}/>
-              <Route path='/details/:taskId' element={<TaskItemDetailsCard/>}/> 
-              <Route path='/createTask' element={<TaskItemCreatePage/>} />
-              <Route path='/userRegistration' element={<UserRegistrationPage/>} />   
-              <Route path='/userTasks' element={<TaskItemsPage/>} />   
+              <Route path='/details/:taskId' element={<ProtectedRoute><TaskItemDetailsCard/></ProtectedRoute>}/> 
+              <Route path='/createTask' element={<ProtectedRoute><TaskItemCreatePage/></ProtectedRoute>} />
+              <Route path='/userRegistration' element={<ProtectedRoute><UserRegistrationPage/></ProtectedRoute>} />   
+              <Route path='/userTasks' element={<ProtectedRoute><TaskItemsPage/></ProtectedRoute>} />   
             </Routes>
           </BrowserRouter>
       </GlobalDropDownContextProvider>

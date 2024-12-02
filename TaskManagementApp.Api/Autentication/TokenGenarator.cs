@@ -25,10 +25,11 @@ public sealed class TokenGenerator : ITokenGenerator
         var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["Jwt:Key"]));
         var signin = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
         var token = new JwtSecurityToken(_configuration["Jwt:Issuer"], _configuration["Jwt:Audience"], claims,
-            expires: DateTime.UtcNow.AddMinutes(5), signingCredentials: signin);
+            expires: DateTime.UtcNow.AddHours(1), signingCredentials: signin);
 
         string tokenValue = new JwtSecurityTokenHandler().WriteToken(token);
         if (string.IsNullOrEmpty(tokenValue)) return "";
         return tokenValue;
     }
 }
+ 
