@@ -9,6 +9,7 @@ This application is a **Task Management System** that allows users to create, up
 - **Repository Design Pattern**: Used to structure data access code and provide separation of concerns between business logic and data access logic.
 - **ADO.NET**: Used for database interaction.
 - **Swagger**: Used for API documentation and easy testing of API endpoints.
+- **Authentication**: Used jwt token authentication to authenticate users.
 
 ### Frontend: React.js
 ## 3. Project Structure
@@ -81,6 +82,7 @@ You can access and test these endpoints using **Swagger UI**, which is available
  - `npm install`
  - `npm run build`
  - `npm run dev`
+### Application screenshoots
 
 
 
