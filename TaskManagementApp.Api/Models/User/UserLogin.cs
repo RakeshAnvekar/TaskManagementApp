@@ -5,4 +5,5 @@ public sealed class UserLogin
     public string? UserEmailId { get; set; }
     public string? UserPassword { get; set; }
     public bool? IsLoggedIn { get; set; }
+    public string? UserDisplayName { get; set; }
 }

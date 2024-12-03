@@ -61,7 +61,7 @@ namespace TaskManagementApp.Api.Controllers
                 {
                     return NotFound($"Class : {nameof(UserController)} :Not able to create token for user :{userLogin.UserEmailId}");
                 }
-                return Ok(new { Token = tokenValue });
+                return Ok(new { Token = tokenValue,User=user });
             }
             catch (Exception ex)
             {

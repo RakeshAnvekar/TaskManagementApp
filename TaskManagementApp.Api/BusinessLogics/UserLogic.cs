@@ -54,6 +54,7 @@ public sealed class UserLogic : IUserLogic
         if (userDetails!=null)
         {
             user.UserEmailId = userDetails.UserEmailId;
+            user.UserDisplayName = userDetails.UserName;
             return user;
         }
         return null;       
