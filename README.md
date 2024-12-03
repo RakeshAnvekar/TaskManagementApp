@@ -82,6 +82,7 @@ You can access and test these endpoints using **Swagger UI**, which is available
  - `npm install`
  - `npm run build`
  - `npm run dev`
+### Application screenshoots
 
 
 
