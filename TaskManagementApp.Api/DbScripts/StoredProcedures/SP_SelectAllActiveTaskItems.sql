@@ -21,4 +21,5 @@ left outer join TaskCategory TC
 on T.TaskCategoryId=tc.TaskCategoryId
 Left outer join TaskPriority TP
 on T.TaskPriorityId = Tp.TaskPriorityId
+where T.isActive=1 and T.IsCompleted=0
 end

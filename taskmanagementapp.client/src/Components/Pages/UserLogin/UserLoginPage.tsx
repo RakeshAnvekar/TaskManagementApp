@@ -22,6 +22,9 @@ const UserLoginPage:React.FC=()=>{
         localStorage.setItem('token', result.token);  
         navigation("/userTasks")
     }
+    else{
+        navigation("/userUnAuthorized")
+    }
     }
     const handleUserRegister=()=>{
         navigation("/userRegistration") 

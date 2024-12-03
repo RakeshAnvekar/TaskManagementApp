@@ -8,6 +8,7 @@ import UserRegistrationPage from './Components/Pages/UserRegistration/UserRegist
 import UserLoginPage from './Components/Pages/UserLogin/UserLoginPage';
 import { UserContextProvider } from './Contexts/User/UserContext';
 import ProtectedRoute from './Routes/ProtectedRoutes/ProtectedRoute';
+import UserUnAuthorizePage from './Components/Pages/UserUnAuthorize/UserUnAuthorizePage';
 
 
 
@@ -23,7 +24,8 @@ function App() {
               <Route path='/details/:taskId' element={<ProtectedRoute><TaskItemDetailsCard/></ProtectedRoute>}/> 
               <Route path='/createTask' element={<ProtectedRoute><TaskItemCreatePage/></ProtectedRoute>} />
               <Route path='/userRegistration' element={<ProtectedRoute><UserRegistrationPage/></ProtectedRoute>} />   
-              <Route path='/userTasks' element={<ProtectedRoute><TaskItemsPage/></ProtectedRoute>} />   
+              <Route path='/userTasks' element={<ProtectedRoute><TaskItemsPage/></ProtectedRoute>} />  
+              <Route path='/userUnAuthorized' element={<UserUnAuthorizePage></UserUnAuthorizePage>} />  
             </Routes>
           </BrowserRouter>
       </GlobalDropDownContextProvider>
