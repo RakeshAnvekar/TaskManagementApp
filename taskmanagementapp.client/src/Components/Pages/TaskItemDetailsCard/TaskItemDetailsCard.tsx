@@ -4,6 +4,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import "../TaskItemDetailsCard/TaskItemDetailsCard.css"
 import { ITaskItem } from "../../../Models/TaskItem";
 import backButtonIcon from "../../../assets/Icons/backButtonIcon.jpg";
+import UserWelcomeControl from "../../Controls/UserWelcome/UserWelcomeControl";
 
 const TaskItemDetailsCard = () => {
     const [taskItemDetails, setTaskItemDetails] = useState<ITaskItem | null>(null);
@@ -63,6 +64,7 @@ const TaskItemDetailsCard = () => {
     // Render task details
     return (
       <>
+      <UserWelcomeControl/>
       <p><button onClick={handleCreateNewTaskItem}>Create New Task Item</button></p>
       <span><img src={backButtonIcon} className="backButtonIcon" alt="go to main Page" onClick={handleBackButtonClick}></img></span>
         {taskItemDetails ? (

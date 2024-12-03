@@ -6,6 +6,7 @@ import { ITaskItem } from "../../../Models/TaskItem";
 import { useNavigate } from "react-router-dom";
 import backButtonIcon from "../../../assets/Icons/backButtonIcon.jpg";
 import { GlobalDropDownContext } from "../../../Contexts/Global/GlobalDropDownContext";
+import UserWelcomeControl from "../../Controls/UserWelcome/UserWelcomeControl";
 
 const TaskItemCreatePage: React.FC = () => {
   const [taskTitle,setTaskTitle]=useState('');
@@ -46,12 +47,12 @@ navigate("/")
  }
 }
 const handleBackButtonClick=async()=>{
-  navigate("/")
+  navigate("/userTasks")
 }
  return <>
 
   <div className="createTaskItem__outer_container">
-    
+  <UserWelcomeControl/>
     <br/>
     <br/>
         <span><img src={backButtonIcon} className="backButtonIcon" alt="go to main Page" onClick={handleBackButtonClick} ></img></span><h2>Create New Task Item</h2>

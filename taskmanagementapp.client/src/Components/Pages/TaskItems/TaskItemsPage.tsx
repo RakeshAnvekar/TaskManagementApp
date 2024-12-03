@@ -3,6 +3,7 @@ import { ITaskItem } from "../../../Models/TaskItem";
 import IocHelper from "../../../Helpers/Ioc/IocHelper";
 import { Link, useNavigate} from "react-router-dom";
 import  "../../Pages/TaskItems/TaskItemsPage.css"
+import UserWelcomeControl from "../../Controls/UserWelcome/UserWelcomeControl"
 
 
 
@@ -11,7 +12,7 @@ const TaskItemsPage: React.FC = () => {
     const iocHelper=new IocHelper();
     const itemTaskRepository= iocHelper.getTaskItemRepository();
     const navigate= useNavigate();
-    var userDisplayName=localStorage.getItem('userDisplayName')
+
   
     useEffect(() => {
       const fetchTasks = async () => {   
@@ -38,7 +39,7 @@ const TaskItemsPage: React.FC = () => {
   }
     return (
         <div>
-            <span>Welcome {userDisplayName} !</span>
+          <UserWelcomeControl/>
             <button onClick={handleUserLogout} className="createNewItem__button">Logout</button>
          
           <h3>Active Tasks</h3>
