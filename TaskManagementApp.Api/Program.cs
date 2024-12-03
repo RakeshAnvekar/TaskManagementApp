@@ -8,6 +8,7 @@ using TaskManagementApp.Api.DbExecutor;
 using TaskManagementApp.Api.DbExecutor.Interface;
 using TaskManagementApp.Api.Mappers;
 using TaskManagementApp.Api.Mappers.Interfaces;
+using TaskManagementApp.Api.Middlewares;
 using TaskManagementApp.Api.Models.ConnectionOption;
 using TaskManagementApp.Api.Repositories;
 using TaskManagementApp.Api.Repositories.Interfaces;
@@ -91,6 +92,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+app.UseMiddleware<HealtCheckMiddleware>();
 
 app.UseRouting();
 app.UseCors("AllowTaskManagemtClientApp");
