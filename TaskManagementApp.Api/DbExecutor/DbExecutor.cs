@@ -1,5 +1,4 @@
 ﻿using System.Data;
-using System.Threading;
 using Microsoft.Data.SqlClient;
 using Microsoft.Extensions.Options;
 using TaskManagementApp.Api.DbExecutor.Interface;

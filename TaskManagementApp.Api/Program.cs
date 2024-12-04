@@ -36,6 +36,7 @@ builder.Services.AddSingleton<ITaskItemRepository, TaskItemRepository>();
 builder.Services.AddSingleton<ITaskCategoryRepository, TaskCategoryRepository>();
 builder.Services.AddSingleton<ITaskPriorityRepository, TaskPriorityRepository>();
 builder.Services.AddSingleton<IUserRepository, UserRepository>();
+builder.Services.AddSingleton<IUnauthorizedTrackingMiddlewareRepository, UnauthorizedTrackingMiddlewareRepository>();
 #endregion
 
 #region Mappers
@@ -93,6 +94,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 app.UseMiddleware<HealtCheckMiddleware>();
+app.UseMiddleware<UnauthorizedTrackingMiddleware>();
 
 app.UseRouting();
 app.UseCors("AllowTaskManagemtClientApp");
