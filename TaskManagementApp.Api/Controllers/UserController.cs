@@ -55,7 +55,7 @@ namespace TaskManagementApp.Api.Controllers
             try
             {
                 var user = await _userLogic.UserLoginAsync(userLogin, HttpContext.RequestAborted);
-                if (user == null) return NotFound();
+                if (user == null) return Unauthorized();
                 var tokenValue = await _tokenGenerator.GenerateTokenAsync(user, HttpContext.RequestAborted);
                 if (string.IsNullOrEmpty(tokenValue))
                 {
@@ -66,7 +66,7 @@ namespace TaskManagementApp.Api.Controllers
             catch (Exception ex)
             {
                 _logger.LogError($"Class : {nameof(UserController)} :Error while using login,Exception : {ex.InnerException}");
-                return BadRequest(ex.Message);
+                 return Unauthorized();
             }
 
         }

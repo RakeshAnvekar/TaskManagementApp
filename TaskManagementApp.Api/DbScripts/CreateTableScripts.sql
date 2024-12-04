@@ -52,5 +52,12 @@ use TaskManagementDb
  foreign key(UserTypeId) references UserType(UserTypeId)
  )
 
+ CREATE TABLE UnauthorizedRequestLogs (
+    Id INT IDENTITY(1,1) PRIMARY KEY,
+    IPAddress NVARCHAR(50),
+    Path NVARCHAR(255),
+    Method NVARCHAR(10),
+    Timestamp DATETIME
+);
 
 
