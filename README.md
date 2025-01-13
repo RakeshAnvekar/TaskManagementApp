@@ -84,6 +84,12 @@ You can access and test these endpoints using **Swagger UI**, which is available
  - `npm run dev`
 ### Application screenshoots
 
+<img width="748" alt="image" src="https://github.com/user-attachments/assets/0f3be8f7-9017-444d-bc9c-dd9f379795ca" />
+<img width="755" alt="image" src="https://github.com/user-attachments/assets/e27ca582-094d-4c78-bbdb-d2d64a14f418" />
+<img width="737" alt="image" src="https://github.com/user-attachments/assets/af5c5e6b-ffce-439b-be13-cdef5fe0036f" />
+<img width="716" alt="image" src="https://github.com/user-attachments/assets/81e6abec-3389-4044-928c-e0c61717909c" />
+
+
 
 
    
